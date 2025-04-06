@@ -6,7 +6,7 @@ import { User } from '../data-access/userModel.js';
 export const authService = {
   async signup(email, password, firstName, lastName) {
     // Check if email already exists
-    const existingUser = await User.findOne({ where: { email } });
+    const existingUser = await User.findOne({ where: { email: email } });
     if (existingUser) {
       const err = new Error('Email already in use.');
       err.status = 400;
